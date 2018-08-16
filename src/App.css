@@ -1,0 +1,19 @@
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+#map {
+    height: 1393px;
+  }
+.markerList:hover {
+  background-color: #ecf9f2;
+  font-style: italic;
+}
+.input{
+  font-size : 12px;
+  font-style : italic;
+}
+.bar{
+  font-size: 12px;
+}
