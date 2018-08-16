@@ -47,7 +47,7 @@ class MarkersPanel extends Component {
                 
                     <SearchBar
       value={this.state.value}
-      onHandleChange={this.handleChange.bind(this)}
+      onHandleChange={this.handleChange}
       onClearInput={this.onClearInput}
 
       />
