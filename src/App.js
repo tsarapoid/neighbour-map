@@ -12,9 +12,9 @@ import ErrorBoundary from './components/HandleError'
 class App extends Component {
   constructor(props) {
     super(props)
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
-  }
-  state ={
+    // this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+  
+  this.state ={
     markers: [],
     width: 0,
     height: 0,
@@ -353,6 +353,7 @@ class App extends Component {
     //map : false
 
   }
+}
 
   componentDidMount() {
     this.updateWindowDimensions();
@@ -366,7 +367,7 @@ class App extends Component {
     window.removeEventListener("resize", this.updateWindowDimensions.bind(this));
   }
 
-  updateWindowDimensions() {
+  updateWindowDimensions = () => {
     this.setState({
       width: window.innerWidth,
       height: window.innerHeight
@@ -398,29 +399,26 @@ class App extends Component {
             <Col>
               <Navbar />
             </Col>
-          </Row>
+        </Row>
         <Row>
           <Col ml="4" xl="4">
-            
             <MarkersPanel
-      listOfMarkers={this.state.Places}
-      changeMarkers={this.updateMarkers}
-      openInfoWindow={this.showInfowindow}
-      />
+              listOfMarkers={this.state.Places}
+              changeMarkers={this.updateMarkers}
+              openInfoWindow={this.showInfowindow}
+            />
           </Col>
           <Col ml="8" xl="8">
-            
             <ErrorBoundary>
-              <Map
-            
-      markers={this.state.markers}
-      map={this.state.map}
-      optionMap = {this.state.optionMap}
-      styleMap={this.state.styleMap}
-      tabIndex="0"
-      aria-label="google map"
-      openInfoWindow={event => this.showInfowindow}
-      />
+            <Map
+              markers={this.state.markers}
+              map={this.state.map}
+              optionMap = {this.state.optionMap}
+              styleMap={this.state.styleMap}
+              tabIndex="0"
+              aria-label="google map"
+              openInfoWindow={event => this.showInfowindow}
+            />
             </ErrorBoundary>
           </Col>
         </Row>

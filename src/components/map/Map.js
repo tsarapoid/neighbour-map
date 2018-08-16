@@ -9,11 +9,10 @@ import axios from 'axios'
 class Map extends Component {
   constructor(props) {
     super(props);
-
     this.myMapContainer = React.createRef()
-  }
-  state = {
+    this.state = {
     markers: []
+  }
   }
 
   //Set timeout to check if the Map is loaded
@@ -26,9 +25,11 @@ class Map extends Component {
       alert(`Couldn't load the Google Map. Check your internet connection`);
     }
   }
+  /*
   getMarkers = (markers) => {
     this.props.openInfoWindow(this.state.markers)
   }
+  */
   fetchDataFromFlickr = () => {
     let flickrKey = `8eea6e08f3cf6c850184fa8eebf05893`,
       url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${flickrKey}text=%E7%8C%AB&per_page=5&page=1&format=rest&api_sig=9f1beab3f0da8f620e197104eb81aa2a`,
@@ -141,9 +142,9 @@ class Map extends Component {
     //console.log(this.state.markers)
     return (
       <div ref={this.myMapContainer}
-      id="map"
-      onClick={this.props.openInfoWindow(this.state.markers)}
-      getMarkers={this.getMarkers.bind(this)}
+        id="map"
+        onClick={this.props.openInfoWindow(this.state.markers)}
+        //getMarkers={this.getMarkers.bind(this)}
       />
     )
   }

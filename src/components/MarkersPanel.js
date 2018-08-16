@@ -9,12 +9,11 @@ import sortBy from 'sort-by';
 class MarkersPanel extends Component {
   constructor(props) {
     super(props);
-  }
-  state={
+  this.state = {
     value: '',
-    places: []
+    places: [],
   }
-
+  }
 
   handleChange = (event, props) => {
     this.setState({
@@ -42,22 +41,20 @@ class MarkersPanel extends Component {
 
     return (
       <div>
-                
-                <Alert color="secondary">
-                
-                    <SearchBar
-      value={this.state.value}
-      onHandleChange={this.handleChange}
-      onClearInput={this.onClearInput}
-
-      />
-                    <MarkersList
-      showWindow = {this.props.openInfoWindow}
-      {...[foundedPlaces]}
-      />
-                </Alert>
-            </div>
+        <Alert color="secondary">
+          <SearchBar
+            value={this.state.value}
+            onHandleChange={this.handleChange}
+            onClearInput={this.onClearInput}
+          />
+          <MarkersList
+            showWindow = {this.props.openInfoWindow}
+            {...[foundedPlaces]}
+          />
+        </Alert>
+      </div>
     )
   }
 }
+
 export default MarkersPanel;
